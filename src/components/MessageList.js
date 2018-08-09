@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class MessagesList extends Component {
+export default class MessageList extends Component {
   render() {
     const styles = {
       container: {
@@ -26,7 +26,6 @@ class MessagesList extends Component {
           ...styles.container,
         }}
       >
-      <h1>Messages List Here</h1>
         <ul style={styles.ul}>
           {this.props.messages.map((message, index) => (
             <li key={index} style={styles.li}>
@@ -41,5 +40,3 @@ class MessagesList extends Component {
     )
   }
 }
-
-export default MessagesList

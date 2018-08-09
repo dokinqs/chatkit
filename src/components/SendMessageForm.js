@@ -23,6 +23,7 @@ export default class SendMessageForm extends Component {
   _onSubmit(e) {
     e.preventDefault()
     this.props.onSubmit(this.state.text)
+    //
     this.setState({
       text: ''
     })
@@ -55,8 +56,8 @@ export default class SendMessageForm extends Component {
               type="text"
               placeholder="Type message and hit Enter"
               onChange={this._onChange}
-              value={this.state.text}
               style={styles.input}
+              value={this.state.text}
             />
           </form>
         </div>
