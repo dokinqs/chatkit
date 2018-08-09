@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Chatkit from '@pusher/chatkit'
 import MessageList from './components/MessageList'
-
-class ChatScreen extends Component {  
+import SendMessageForm from './components/SendMessageForm'
+export default class ChatScreen extends Component {  
   constructor(props) {
     super(props)
     this.state = {
@@ -10,7 +10,17 @@ class ChatScreen extends Component {
       currentRoom: {},
       messages: []
     }
+    this.sendMessage = this.sendMessage.bind(this)
   }
+
+  //
+  sendMessage(text) {
+    this.state.currentUser.sendMessage({
+      text,
+      roomId: this.state.currentRoom.id
+    })
+  }
+
   componentDidMount () {
       const chatManager = new Chatkit.ChatManager({
         instanceLocator: 'v1:us1:8ef7f197-95d7-41db-9981-3e492b421d50',
@@ -66,8 +76,7 @@ class ChatScreen extends Component {
         display: 'flex',
         flexDirection: 'column',
       }
-   }
-
+    }
     return (
       <div style={styles.container}>
         <div style={styles.chatContainer}>
@@ -79,11 +88,10 @@ class ChatScreen extends Component {
               messages={this.state.messages}
               style={styles.chatList}
             />        
+            <SendMessageForm onSubmit={this.sendMessage} />
           </section>
         </div>
       </div>
     )
   }
 }
-
-export default ChatScreen

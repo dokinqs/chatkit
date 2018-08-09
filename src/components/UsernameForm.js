@@ -24,7 +24,7 @@ class UsernameForm extends Component {
   render() {
     return (
       <div>
-        <h2>Username?</h2>
+        <h2>Enter Username</h2>
         <form onSubmit={this._onSubmit}>
           <input
             type="text"
