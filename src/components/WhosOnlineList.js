@@ -43,9 +43,9 @@ class WhosOnlineListItem extends Component {
       },
       div: {
         borderRadius: '50%',
-        width: 11,
-        height: 11,
-        marginRight: 10
+        width: 10,
+        height: 10,
+        marginRight: 15
       }
     }
     return (
@@ -53,7 +53,7 @@ class WhosOnlineListItem extends Component {
         <div
           style={{
             ...styles.div,
-            backgroundColor: this.props.presenceState === 'online' ? '#4c93f0' : '#3a3e4b'
+            backgroundColor: this.props.presenceState === 'online' ? '#327cfc' : '#3a3e4b'
           }}
         />
         {this.props.children}

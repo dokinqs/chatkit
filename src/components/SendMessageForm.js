@@ -32,9 +32,8 @@ export default class SendMessageForm extends Component {
   render() {
     const styles = {
       container: {
-        padding: 20,
-        borderTop: '1px #557788 solid',
-        marginBottom: 20
+        paddingTop: 20,
+        borderTop: '1px #557788 solid'
       },
       form: {
         display: 'flex'
@@ -44,9 +43,10 @@ export default class SendMessageForm extends Component {
         fontSize: 16,
         color: 'inherit',
         background: 'none',
-        outline: 'none',
-        border: 'none'
-      },
+        outline: '4px solid #A7BFE8',
+        border: 'none',
+        padding: 20
+      }
     }
     return (
       <div style={styles.container}>

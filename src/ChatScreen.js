@@ -80,8 +80,8 @@ export default class ChatScreen extends Component {
   render() {
     const styles = {
       container: {
-        height: '100vh',
         display: 'flex',
+        height: '100vh',
         flexDirection: 'column'
       },
       chatContainer: {
@@ -92,17 +92,18 @@ export default class ChatScreen extends Component {
         flex: 'none',
         height: '100vh',
         overflowY: 'scroll',
-        width: '180px',
-        fontSize: '16px',
+        width: 180,
+        fontSize: 16,
         padding: 20,
-        backgroundColor: '#2c303b',
+        backgroundColor: 'black',
         color: 'white'
       },
       chatListContainer: {
         display: 'flex',
         flexDirection: 'column',
         padding: 20,
-        width: '85%'
+        width: '60vw',
+        margin: '0 10px'
       }
     }
     return (
@@ -118,9 +119,9 @@ export default class ChatScreen extends Component {
           </aside>
           <section style={styles.chatListContainer}>
             <h1>Messages</h1>
+            <br />
             <MessageList
               messages={this.state.messages}
-              style={styles.chatList}
             />        
             <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
             <SendMessageForm onSubmit={this.sendMessage} />

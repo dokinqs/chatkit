@@ -17,22 +17,21 @@ export default class MessageList extends Component {
       senderUsername: {
         fontWeight: 'bold'
       },
-      message: { fontSize: 15 },
+      message: { 
+        fontSize: 15 
+      }
     }
     return (
-      <div
-        style={{
-          ...this.props.style,
-          ...styles.container,
-        }}
-      >
+      <div style={styles.container}>
         <ul style={styles.ul}>
           {this.props.messages.map((message, index) => (
             <li key={index} style={styles.li}>
-              <div>
-                <span style={styles.senderUsername}>{message.senderId}</span>{' '}
+              <div style={styles.senderUsername}>
+                {message.senderId}
               </div>
-              <p style={styles.message}>{message.text}</p>
+              <p style={styles.message}>
+                {message.text}
+              </p>
             </li>
           ))}
         </ul>
