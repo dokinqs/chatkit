@@ -13,23 +13,21 @@ export default class ChatScreen extends Component {
       messages: [],
       usersWhoAreTyping: []
     }
-    this.sendMessage = this.sendMessage.bind(this)
     this.sendTypingEvent = this.sendTypingEvent.bind(this)
+    this.sendMessage = this.sendMessage.bind(this)
   }
 
   sendTypingEvent() {
-    this.state.currentUser
-      .isTypingIn({
+    this.state.currentUser.isTypingIn({
         roomId: this.state.currentRoom.id
-      })
-      .catch(error => console.log('error: ', error))
+    })
+    .catch(error => console.log('error: ', error))
   }
 
-  //
   sendMessage(text) {
     this.state.currentUser.sendMessage({
-      text,
-      roomId: this.state.currentRoom.id
+      roomId: this.state.currentRoom.id,
+      text
     })
   }
 
@@ -52,17 +50,17 @@ export default class ChatScreen extends Component {
             hooks: {
               onNewMessage: message => {
                 this.setState({
-                  messages: [...this.state.messages, message],
+                  messages: [...this.state.messages, message]
                 })
               },
               onUserStartedTyping: user => {
                 this.setState({
-                  usersWhoAreTyping: [...this.state.usersWhoAreTyping, user.name]                  
+                  usersWhoAreTyping: [...this.state.usersWhoAreTyping, user.name]
                 })
               },
               onUserStoppedTyping: user => {
                 this.setState({
-                  usersWhoAreTyping: this.state.usersWhoAreTyping.filter( username => username!== user.name)
+                  usersWhoAreTyping: this.state.usersWhoAreTyping.filter( username => username !== user.name)
                 })
               }
             },
@@ -120,9 +118,7 @@ export default class ChatScreen extends Component {
           <section style={styles.chatListContainer}>
             <h1>Messages</h1>
             <br />
-            <MessageList
-              messages={this.state.messages}
-            />        
+            <MessageList messages={this.state.messages} />        
             <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
             <SendMessageForm onSubmit={this.sendMessage} />
           </section>

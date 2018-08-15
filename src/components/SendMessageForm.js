@@ -14,7 +14,6 @@ export default class SendMessageForm extends Component {
     this.setState({
       text: e.target.value
     })
-    // 
     if (this.props.onChange) {
       this.props.onChange()
     }
@@ -23,7 +22,6 @@ export default class SendMessageForm extends Component {
   _onSubmit(e) {
     e.preventDefault()
     this.props.onSubmit(this.state.text)
-    //
     this.setState({
       text: ''
     })

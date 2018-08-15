@@ -25,7 +25,7 @@ export default class MessageList extends Component {
     return (
       <div style={styles.container}>
         <ul style={styles.ul}>
-          {this.props.messages.map((message, index) => {
+          {this.props.messages.map( (message, index) => {
             return (
               <Message key={index} 
                       styles={styles}
