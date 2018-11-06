@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import Chatkit from '@pusher/chatkit'
+import { ChatManager, TokenProvider } from '@pusher/chatkit-client'
 import MessageList from './components/MessageList'
 import SendMessageForm from './components/SendMessageForm'
 import TypingIndicator from './components/TypingIndicator'
 import WhosOnlineList from './components/WhosOnlineList'
+
 export default class ChatScreen extends Component {  
   constructor(props) {
     super(props)
@@ -32,10 +33,10 @@ export default class ChatScreen extends Component {
   }
 
   componentDidMount () {
-      const chatManager = new Chatkit.ChatManager({
+      const chatManager = new ChatManager({
         instanceLocator: 'v1:us1:8ef7f197-95d7-41db-9981-3e492b421d50',
         userId: this.props.currentUsername,
-        tokenProvider: new Chatkit.TokenProvider({
+        tokenProvider: new TokenProvider({
           url: 'http://localhost:3001/authenticate',
         }),
       })
