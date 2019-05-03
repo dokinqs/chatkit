@@ -38,9 +38,5 @@ app.post('/authenticate', (req, res) => {
   
 const PORT = 3001
 app.listen(PORT, err => {
-  if (err) {
-    console.error(err)
-  } else {
-    console.log(`Running on port ${PORT}`)
-  }
+  err ? console.error(err) : console.log(`Running on port ${PORT}`)
 })

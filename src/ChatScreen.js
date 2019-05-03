@@ -20,19 +20,21 @@ export default class ChatScreen extends Component {
 
   sendTypingEvent() {
     this.state.currentUser.isTypingIn({
-        roomId: this.state.currentRoom.id
+      // roomId: this.state.currentRoom.id
+      roomId: 13476711
     })
     .catch(error => console.log('error: ', error))
   }
 
   sendMessage(text) {
     this.state.currentUser.sendMessage({
-      roomId: this.state.currentRoom.id,
+      // roomId: this.state.currentRoom.id,
+      roomId: 13476711,
       text
     })
   }
 
-  componentDidMount () {
+  componentDidMount() {
       const chatManager = new ChatManager({
         instanceLocator: 'v1:us1:8ef7f197-95d7-41db-9981-3e492b421d50',
         userId: this.props.currentUsername,
