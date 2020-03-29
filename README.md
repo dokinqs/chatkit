@@ -10,3 +10,5 @@ cd chatkit
 npm install
 npm start
 ```
+
+depreciated chatkit api...
